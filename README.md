@@ -8,10 +8,7 @@ Install java jdk 1.8 (aka 8)
 
 Install gradle 5.6.4
 
-Download Food Expansion mod for 1.7.10
-
 ### Building
-Move the Food Expansion jar into libs AND rename it to FoodExpansion.jar
 
 Run these commands:
 
