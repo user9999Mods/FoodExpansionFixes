@@ -1,4 +1,5 @@
 # FoodExpansionFixes
+For 1.7.10, might work on other versions but untested
 Fixes mods which extend vanilla mob classes dropping items that don't make sense (eg. camel drops horse meat)
 
 ## Building from source
