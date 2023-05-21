@@ -7,22 +7,30 @@ import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
 
+import java.util.HashMap;
+
+
 public class Transformer implements IClassTransformer {
 
+    public static HashMap<Class, Boolean> horseCache = new HashMap<>();
+    public static HashMap<Class, Boolean> squidCache = new HashMap<>();
+    public static HashMap<Class, Boolean> batCache = new HashMap<>();
+    public static HashMap<Class, Boolean> sheepCache = new HashMap<>();
+
     public static boolean checkForHorse(EntityLivingBase entity) {
-        return entity.getClass().getName().toLowerCase().contains("horse");
+        return horseCache.computeIfAbsent(entity.getClass(), (k) -> k.getName().toLowerCase().contains("horse"));
     }
 
     public static boolean checkForSquid(EntityLivingBase entity) {
-        return entity.getClass().getName().toLowerCase().contains("squid");
+        return squidCache.computeIfAbsent(entity.getClass(), (k) -> k.getName().toLowerCase().contains("squid"));
     }
 
     public static boolean checkForBat(EntityLivingBase entity) {
-        return entity.getClass().getName().toLowerCase().contains("bat");
+        return batCache.computeIfAbsent(entity.getClass(), (k) -> k.getName().toLowerCase().contains("bat"));
     }
 
     public static boolean checkForSheep(EntityLivingBase entity) {
-        return entity.getClass().getName().toLowerCase().contains("sheep");
+        return sheepCache.computeIfAbsent(entity.getClass(), (k) -> k.getName().toLowerCase().contains("sheep"));
     }
 
     @Override
